@@ -1,13 +1,19 @@
 {
-  "name": "ngx-pipes",
-  "version": "0.0.1",
+  "name": "mfi-ngx-pipes",
+  "version": "0.0.2",
   "description": "Angular utility library providing extra predefined pipes.",
   "author": "matfij",
+  "license": "MIT",
   "keywords": [
     "angular",
     "ngx",
-    "pipes"
+    "pipes",
+    "filters"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matfij/ngx-libs"
+  },
   "peerDependencies": {
     "@angular/common": "^15.0.0",
     "@angular/core": "^15.0.0"
