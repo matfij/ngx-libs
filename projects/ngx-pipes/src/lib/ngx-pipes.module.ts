@@ -1,16 +1,10 @@
 import { NgModule } from '@angular/core';
-import { NgxPipesComponent } from './ngx-pipes.component';
+import { PreventOrphansPipe } from './pipes/prevent-orphans.pipe';
 
-
+const COMMON_PIPES = [PreventOrphansPipe];
 
 @NgModule({
-  declarations: [
-    NgxPipesComponent
-  ],
-  imports: [
-  ],
-  exports: [
-    NgxPipesComponent
-  ]
+  declarations: [...COMMON_PIPES],
+  exports: [...COMMON_PIPES],
 })
-export class NgxPipesModule { }
+export class NgxPipesModule {}
