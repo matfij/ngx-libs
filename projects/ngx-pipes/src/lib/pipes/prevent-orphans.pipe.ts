@@ -4,7 +4,9 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'preventOrphans',
 })
 export class PreventOrphansPipe implements PipeTransform {
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return value;
+  private readonly ORPHANS_PATTERN = /(\s+)((?:[\S][\s]+)+\S{2,})/g;
+
+  transform(value: string, ...args: unknown[]): unknown {
+    return value.replaceAll(this.ORPHANS_PATTERN, (x) => ' ' + x.replace(' ', '').replace(' ', '&nbsp;'));
   }
 }
