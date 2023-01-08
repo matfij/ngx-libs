@@ -2,6 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'preventOrphans',
+  standalone: true,
 })
 export class PreventOrphansPipe implements PipeTransform {
   private readonly ORPHANS_PATTERN = /(\s+)((?:[\S][\s]+)+\S{2,})/g;

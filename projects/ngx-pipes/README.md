@@ -10,17 +10,23 @@ npm install mfi-ngx-pipes
 ```
 
 ## Usage
-1. Import NgxPipes module in desired module/component:
+1. Import desired pipe (standalone) in your module or component:
 ```ts
 @NgModule({
   ...
-  imports: [
-    NgxPipesModule,
-  ],
+  imports: [PreventOrphansPipe]
+})
+```
+or
+```ts
+@Component({
+  standalone: true,
+  ...
+  imports: [PreventOrphansPipe]
 })
 ```
 
-2. Apply desired pipe for string:
+2. Apply desired pipe for some value:
 ```html
 <p>{{ article | preventOrphans }}</p>
 ```
