@@ -8,6 +8,9 @@ export class PreventOrphansPipe implements PipeTransform {
   private readonly ORPHANS_PATTERN = /(\s+)((?:[\S][\s]+)+\S{2,})/g;
 
   transform(value: string, ...args: unknown[]): unknown {
-    return value.replaceAll(this.ORPHANS_PATTERN, (x) => ' ' + x.replace(' ', '').replace(' ', '&nbsp;'));
+    return value.replaceAll(
+      this.ORPHANS_PATTERN,
+      (x) => ' ' + x.replace(' ', '').replace(' ', '&nbsp;')
+    );
   }
 }

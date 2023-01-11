@@ -10,11 +10,11 @@ npm install mfi-ngx-pipes
 ```
 
 ## Usage
-1. Import desired pipe (standalone) in your module or component:
+1. Import NgxPipes module or a signle pipe in your module or standalone component:
 ```ts
 @NgModule({
   ...
-  imports: [PreventOrphansPipe]
+  imports: [NgxPipesModule],
 })
 ```
 or
@@ -22,8 +22,12 @@ or
 @Component({
   standalone: true,
   ...
-  imports: [PreventOrphansPipe]
+  imports: [PreventOrphansPipe],
 })
+```
+in case of import error make sure the module is imported in the following way:
+```ts
+import { NgxPipesModule, PreventOrphansPipe } from 'mfi-ngx-pipes';
 ```
 
 2. Apply desired pipe for some value:
