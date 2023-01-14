@@ -1,3 +1,4 @@
+import { take, toArray } from 'rxjs';
 import { CountdownPipe } from './countdown.pipe';
 
 describe('CountdownPipe', () => {
@@ -11,14 +12,16 @@ describe('CountdownPipe', () => {
     expect(pipe).toBeTruthy();
   });
 
-  it('correctly counts down to 0 with default parameters', async () => {
-    const startValue = 10;
-    const transformSpy = spyOn(pipe, 'transform').and.callThrough();
+  it('correctly counts down to 0 with default parameters', (done: DoneFn) => {
+    const startValue = 3;
+    const expectedResult = [3, 2, 1, 0];
 
-    pipe.transform(startValue).subscribe((val) => {
-      expect(val).toEqual(startValue);
-    });
-
-    expect(transformSpy).toHaveBeenCalledOnceWith(startValue);
+    pipe
+      .transform(startValue)
+      .pipe(take(4), toArray())
+      .subscribe((result) => {
+        expect(result).toEqual(expectedResult);
+        done();
+      });
   });
 });
