@@ -3,4 +3,5 @@
  */
 
 export * from './lib/ngx-pipes.module';
+export * from './lib/pipes/countdown.pipe';
 export * from './lib/pipes/prevent-orphans.pipe';
