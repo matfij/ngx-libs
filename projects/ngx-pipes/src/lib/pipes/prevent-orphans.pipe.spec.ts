@@ -21,4 +21,16 @@ describe('PreventOrphansPipe', () => {
 
     expect(result).toEqual(expectedResult);
   });
+
+  it('correctly prevent orphan from text with custom pattern', () => {
+    const text =
+      'I agree to be contacted by phone and in order to present a insurance offer and to provide commercial information as well as information and statements via electronic means of communication in connection with the conclusion, performance, change or termination of the insurance contract with MatFij Entertainment.';
+    const pattern = /(\s+)((?:[\S][\s]+)+\S{2,})/g;
+    const expectedResult =
+      'I agree to be contacted by phone and in order to present a&nbsp;insurance offer and to provide commercial information as well as information and statements via electronic means of communication in connection with the conclusion, performance, change or termination of the insurance contract with MatFij Entertainment.';
+
+    const result = pipe.transform(text, pattern);
+
+    expect(result).toEqual(expectedResult);
+  });
 });

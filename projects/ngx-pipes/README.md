@@ -34,3 +34,12 @@ import { NgxPipesModule, PreventOrphansPipe } from 'mfi-ngx-pipes';
 ```html
 <p>{{ article | preventOrphans }}</p>
 ```
+You may also add argumenets to selected pipes:
+```html
+<p>{{ article | preventOrphans:myPattern }}</p>
+```
+```ts
+export class AppComponent {
+  myPattern = /(\s+)((?:[\S][\s]+)+\S{2,})/g;
+}
+```
