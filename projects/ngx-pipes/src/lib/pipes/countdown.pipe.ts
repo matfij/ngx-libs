@@ -9,14 +9,16 @@ export class CountdownPipe implements PipeTransform {
   private readonly COUNTDOWN_INTERVAL = 1000;
   private readonly STOP_AT_ZERO = true;
 
-  transform(value: number): Observable<number> {
-    let currentVal = value;
-
-    return timer(0, this.COUNTDOWN_INTERVAL).pipe(
+  transform(
+    value: number,
+    interval: number = this.COUNTDOWN_INTERVAL,
+    stopAtZero: boolean = this.STOP_AT_ZERO
+  ): Observable<number> {
+    return timer(0, interval).pipe(
       map((val) => {
-        currentVal = value - val;
-        if (this.STOP_AT_ZERO && currentVal < 0) currentVal = 0;
-        return currentVal;
+        let result = value - val;
+        if (stopAtZero && result < 0) result = 0;
+        return result;
       })
     );
   }

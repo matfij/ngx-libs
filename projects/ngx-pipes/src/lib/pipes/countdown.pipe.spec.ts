@@ -24,4 +24,21 @@ describe('CountdownPipe', () => {
         done();
       });
   });
+
+  it('correctly counts down to 0 with default parameters', (done: DoneFn) => {
+    const startValue = 3;
+    const interval = 200;
+    const stopAtZero = false;
+    const expectedResult = [3, 2, 1, 0, -1, -2, -3];
+
+    pipe
+      .transform(startValue, interval, stopAtZero)
+      .pipe(take(7), toArray())
+      .subscribe((result) => {
+        expect(result).toEqual(expectedResult);
+        done();
+      });
+  });
+
+
 });

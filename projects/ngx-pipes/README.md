@@ -43,3 +43,7 @@ export class AppComponent {
   myPattern = /(\s+)((?:[\S][\s]+)+\S{2,})/g;
 }
 ```
+or
+```html
+{{ 10 | countdown : 500 : false | async }}
+```
