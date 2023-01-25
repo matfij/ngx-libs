@@ -1,6 +1,6 @@
 {
   "name": "mfi-ngx-pipes",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Angular utility library providing extra predefined pipes.",
   "author": "matfij",
   "license": "MIT",
